@@ -132,6 +132,7 @@ type ProviderSettings = {
 	diffEnabled?: boolean | undefined
 	fuzzyMatchThreshold?: number | undefined
 	modelTemperature?: (number | null) | undefined
+	modelSeed?: (number | null) | undefined
 	rateLimitSeconds?: number | undefined
 	fakeAi?: unknown | undefined
 }

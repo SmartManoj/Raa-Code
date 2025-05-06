@@ -493,7 +493,7 @@ const ApiOptions = ({
 					/>
 					<SeedControl
 						value={apiConfiguration.modelSeed}
-						onChange={handleInputChange("modelSeed", noTransform)}
+						onChange={handleInputChange("modelSeed", inputEventTransform)}
 					/>
 				</>
 			)}

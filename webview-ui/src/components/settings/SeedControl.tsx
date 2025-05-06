@@ -4,7 +4,7 @@ import { useAppTranslation } from "@/i18n/TranslationContext"
 import { useDebounce } from "react-use"
 
 interface SeedControlProps {
-	value: number | string | undefined | null 
+	value: number | string | undefined | null
 	onChange: (value: number | string | undefined | null) => void
 }
 
@@ -24,8 +24,8 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 				}
 			}
 		},
-		50, 
-		[onChange, inputValue]
+		50,
+		[onChange, inputValue],
 	)
 
 	// Sync internal state with prop changes when switching profiles.
@@ -40,7 +40,7 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 		setIsCustomSeed(isChecked)
 
 		if (!isChecked) {
-			setInputValue("") 
+			setInputValue("")
 		} else {
 			setInputValue(value?.toString() ?? "")
 		}
@@ -55,26 +55,27 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 			<div>
 				<VSCodeCheckbox
 					checked={isCustomSeed}
-					onChange={handleCheckboxChange}>
+					onChange={(e) => {
+						handleCheckboxChange(e as React.ChangeEvent<HTMLInputElement>)
+					}}>
 					<label className="block font-medium mb-1">{t("settings:seed.useCustom")}</label>
 				</VSCodeCheckbox>
-				<div className="text-sm text-vscode-descriptionForeground mt-1">
-					{t("settings:seed.description")}
-				</div>
+				<div className="text-sm text-vscode-descriptionForeground mt-1">{t("settings:seed.description")}</div>
 			</div>
 
 			{isCustomSeed && (
 				<div className="flex flex-col gap-3 pl-3 border-l-2 border-vscode-button-background">
 					<div>
 						<VSCodeTextField
-							type="text" 
+							type="text"
+							inputMode="numeric"
 							value={inputValue}
-							onInput={handleInputChange}
+							onInput={(e) => {
+								handleInputChange(e as React.ChangeEvent<HTMLInputElement>)
+							}}
 							className="w-full"
 						/>
-						<div className="text-vscode-descriptionForeground text-sm mt-1">
-							{t("settings:seed.label")}
-						</div>
+						<div className="text-vscode-descriptionForeground text-sm mt-1">{t("settings:seed.label")}</div>
 					</div>
 				</div>
 			)}
