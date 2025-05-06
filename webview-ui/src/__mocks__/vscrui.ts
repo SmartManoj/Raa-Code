@@ -1,6 +1,6 @@
 import React from "react"
 
-export const VSCodeCheckbox = ({ children, onChange }: any) =>
+export const Checkbox = ({ children, onChange }: any) =>
 	React.createElement("div", { "data-testid": "mock-checkbox", onClick: onChange }, children)
 
 export const Dropdown = ({ children, onChange }: any) =>

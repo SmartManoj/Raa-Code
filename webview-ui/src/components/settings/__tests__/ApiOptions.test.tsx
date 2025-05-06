@@ -1,4 +1,3 @@
-import React from "react"
 // npx jest src/components/settings/__tests__/ApiOptions.test.ts
 
 import { render, screen, fireEvent } from "@testing-library/react"
@@ -16,23 +15,13 @@ jest.mock("@vscode/webview-ui-toolkit/react", () => ({
 	VSCodeTextField: ({ children, value, onBlur }: any) => (
 		<div>
 			{children}
-			<input type="text" value={value} onChange={onBlur || (() => {})} />
+			<input type="text" value={value} onChange={onBlur} />
 		</div>
 	),
 	VSCodeLink: ({ children, href }: any) => <a href={href}>{children}</a>,
 	VSCodeRadio: ({ value, checked }: any) => <input type="radio" value={value} checked={checked} />,
 	VSCodeRadioGroup: ({ children }: any) => <div>{children}</div>,
 	VSCodeButton: ({ children }: any) => <div>{children}</div>,
-	VSCodeCheckbox: ({ children, checked, onChange, ...props }: any) => (
-		<div {...props}>
-			<input
-				type="checkbox"
-				checked={checked}
-				onChange={(e) => onChange && onChange({ target: { checked: e.target.checked } })}
-			/>
-			{children}
-		</div>
-	),
 }))
 
 // Mock other components
@@ -53,32 +42,15 @@ jest.mock("vscrui", () => ({
 // Mock @shadcn/ui components
 jest.mock("@/components/ui", () => ({
 	Select: ({ children, value, onValueChange }: any) => (
-		<div className="select-mock" data-testid="shadcn-select-root">
-			{React.Children.map(children, (child) => {
-				if (React.isValidElement(child)) {
-					// Pass down onValueChange and value to direct children
-					return React.cloneElement(child as React.ReactElement<any>, {
-						__rootValue: value,
-						__onRootValueChange: onValueChange,
-					})
-				}
-				return child
-			})}
+		<div className="select-mock">
+			<select value={value} onChange={(e) => onValueChange && onValueChange(e.target.value)}>
+				{children}
+			</select>
 		</div>
 	),
-	SelectTrigger: ({ children }: any) => <button className="select-trigger-mock">{children}</button>,
-	SelectValue: ({ children, placeholder, __rootValue }: any) => (
-		<span className="select-value-mock">{__rootValue || placeholder || children}</span>
-	),
-	SelectContent: ({ children, __rootValue, __onRootValueChange }: any) => (
-		<select
-			className="select-content-mock"
-			value={__rootValue}
-			onChange={(e) => __onRootValueChange && __onRootValueChange(e.target.value)}
-			data-testid="shadcn-select-content">
-			{children}
-		</select>
-	),
+	SelectTrigger: ({ children }: any) => <div className="select-trigger-mock">{children}</div>,
+	SelectValue: ({ children }: any) => <div className="select-value-mock">{children}</div>,
+	SelectContent: ({ children }: any) => <div className="select-content-mock">{children}</div>,
 	SelectItem: ({ children, value }: any) => (
 		<option value={value} className="select-item-mock">
 			{children}
@@ -94,15 +66,14 @@ jest.mock("@/components/ui", () => ({
 	Command: ({ children }: any) => <div className="command-mock">{children}</div>,
 	CommandEmpty: ({ children }: any) => <div className="command-empty-mock">{children}</div>,
 	CommandGroup: ({ children }: any) => <div className="command-group-mock">{children}</div>,
-	CommandInput: React.forwardRef(({ value, onValueChange, placeholder, className }: any, ref: any) => (
+	CommandInput: ({ value, onValueChange, placeholder, className, _ref }: any) => (
 		<input
-			ref={ref}
 			value={value}
 			onChange={(e) => onValueChange && onValueChange(e.target.value)}
 			placeholder={placeholder}
 			className={className}
 		/>
-	)),
+	),
 	CommandItem: ({ children, value, onSelect }: any) => (
 		<div className="command-item-mock" onClick={() => onSelect && onSelect(value)}>
 			{children}
@@ -196,7 +167,6 @@ jest.mock("../ReasoningEffort", () => ({
 	ReasoningEffort: ({ apiConfiguration, setApiConfigurationField, value }: any) => (
 		<div data-testid="reasoning-effort-select">
 			<select
-				role="combobox"
 				value={value ?? apiConfiguration.openAiCustomModelInfo?.reasoningEffort}
 				onChange={(e) => setApiConfigurationField("reasoningEffort", e.target.value)}>
 				<option value="auto">Auto</option>
