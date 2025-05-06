@@ -116,11 +116,13 @@ export function getModelParams({
 		modelMaxTokens: customMaxTokens,
 		modelMaxThinkingTokens: customMaxThinkingTokens,
 		modelTemperature: customTemperature,
+		modelSeed: customSeed,
 		reasoningEffort: customReasoningEffort,
 	} = options
 
 	let maxTokens = model.maxTokens ?? defaultMaxTokens
 	let thinking: BetaThinkingConfigParam | undefined = undefined
+	let seed = customSeed
 	let temperature = customTemperature ?? defaultTemperature
 	const reasoningEffort = customReasoningEffort ?? defaultReasoningEffort
 
@@ -138,5 +140,5 @@ export function getModelParams({
 		temperature = 1.0
 	}
 
-	return { maxTokens, thinking, temperature, reasoningEffort }
+	return { maxTokens, thinking, temperature, reasoningEffort, seed }
 }

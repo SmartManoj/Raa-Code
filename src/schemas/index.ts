@@ -438,6 +438,7 @@ export const providerSettingsSchema = z.object({
 	diffEnabled: z.boolean().optional(),
 	fuzzyMatchThreshold: z.number().optional(),
 	modelTemperature: z.number().nullish(),
+	modelSeed: z.number().nullish(),
 	rateLimitSeconds: z.number().optional(),
 	// Fake AI
 	fakeAi: z.unknown().optional(),
@@ -528,6 +529,7 @@ const providerSettingsRecord: ProviderSettingsRecord = {
 	diffEnabled: undefined,
 	fuzzyMatchThreshold: undefined,
 	modelTemperature: undefined,
+	modelSeed: undefined,
 	rateLimitSeconds: undefined,
 	// Fake AI
 	fakeAi: undefined,
