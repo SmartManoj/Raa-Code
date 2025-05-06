@@ -1,4 +1,4 @@
-import { VSCodeCheckbox, VSCodeTextField } from "@vscode/webview-ui-toolkit/react"
+import { VSCodeCheckbox } from "@vscode/webview-ui-toolkit/react"
 import { useEffect, useState } from "react"
 import { useAppTranslation } from "@/i18n/TranslationContext"
 import { useDebounce } from "react-use"
@@ -66,11 +66,10 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 			{isCustomSeed && (
 				<div className="flex flex-col gap-3 pl-3 border-l-2 border-vscode-button-background">
 					<div>
-						<VSCodeTextField
+						<input
 							type="text"
-							inputMode="numeric"
 							value={inputValue}
-							onInput={(e) => {
+							onChange={(e) => {
 								handleInputChange(e as React.ChangeEvent<HTMLInputElement>)
 							}}
 							className="w-full"
