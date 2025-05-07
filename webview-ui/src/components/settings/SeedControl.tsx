@@ -42,7 +42,7 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 		if (!isChecked) {
 			setInputValue("")
 		} else {
-			setInputValue(value?.toString() ?? "")
+			setInputValue(value?.toString() ?? "42")
 		}
 	}
 
