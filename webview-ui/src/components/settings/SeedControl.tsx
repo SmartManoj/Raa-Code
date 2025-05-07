@@ -10,7 +10,7 @@ interface SeedControlProps {
 
 export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 	const { t } = useAppTranslation()
-	const [isCustomSeed, setIsCustomSeed] = useState(value !== undefined && value !== null && value !== "")
+	const [isCustomSeed, setIsCustomSeed] = useState(value !== undefined && value !== null)
 	const [inputValue, setInputValue] = useState<string>(value?.toString() ?? "")
 
 	useDebounce(
@@ -30,7 +30,7 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 
 	// Sync internal state with prop changes when switching profiles.
 	useEffect(() => {
-		const hasCustomSeed = value !== undefined && value !== null && value !== ""
+		const hasCustomSeed = value !== undefined && value !== null
 		setIsCustomSeed(hasCustomSeed)
 		setInputValue(value?.toString() ?? "")
 	}, [value])
