@@ -67,7 +67,7 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 				<div className="flex flex-col gap-3 pl-3 border-l-2 border-vscode-button-background">
 					<div>
 						<input
-							type="text"
+							type="number"
 							value={inputValue}
 							onChange={(e) => {
 								handleInputChange(e as React.ChangeEvent<HTMLInputElement>)
