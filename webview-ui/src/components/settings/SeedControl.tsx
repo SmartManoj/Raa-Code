@@ -4,8 +4,8 @@ import { useAppTranslation } from "@/i18n/TranslationContext"
 import { useDebounce } from "react-use"
 
 interface SeedControlProps {
-	value: number | string | undefined | null
-	onChange: (value: number | string | undefined | null) => void
+	value: number | undefined | null
+	onChange: (value: number | undefined | null) => void
 }
 
 export const SeedControl = ({ value, onChange }: SeedControlProps) => {
