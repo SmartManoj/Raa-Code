@@ -74,7 +74,6 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 							}}
 							className="w-full"
 						/>
-						<div className="text-vscode-descriptionForeground text-sm mt-1">{t("settings:seed.label")}</div>
 					</div>
 				</div>
 			)}
