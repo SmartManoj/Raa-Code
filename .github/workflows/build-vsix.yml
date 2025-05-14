@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Install dependencies
+    - name: Install all dependencies
       run: npm run install:all
 
     - name: Build Extension
@@ -42,4 +42,4 @@ jobs:
         issue-number: ${{ github.event.pull_request.number }}
         body: |
           Build successful! 🚀
-          You can download the VSIX artifact from the [GitHub Actions run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+          You can download the VSIX extension [here](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
