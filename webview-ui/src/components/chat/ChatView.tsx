@@ -61,6 +61,10 @@ const ChatViewComponent: React.ForwardRefRenderFunction<ChatViewRef, ChatViewPro
 	{ isHidden, showAnnouncement, hideAnnouncement },
 	ref,
 ) => {
+	const [audioBaseUri] = useState(() => {
+		const w = window as any
+		return w.AUDIO_BASE_URI || ""
+	})
 	const { t } = useAppTranslation()
 	const modeShortcutText = `${isMac ? "⌘" : "Ctrl"} + . ${t("chat:forNextMode")}`
 	const {
@@ -148,11 +152,8 @@ const ChatViewComponent: React.ForwardRefRenderFunction<ChatViewRef, ChatViewPro
 		soundEnabled,
 	}
 
-	// Helper function to get audio URLs that works in both development and Jest environments
 	const getAudioUrl = (path: string) => {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		return `${window.AUDIO_BASE_URI}/${path}`
+		return `${audioBaseUri}/${path}`
 	}
 
 	// Use the getAudioUrl helper function
