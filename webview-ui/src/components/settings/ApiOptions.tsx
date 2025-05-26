@@ -42,17 +42,17 @@ import {
 	XAI,
 } from "./providers"
 
-import { MODELS_BY_PROVIDER, PROVIDERS, REASONING_MODELS } from "./constants"
+import { MODELS_BY_PROVIDER, PROVIDERS } from "./constants"
 import { inputEventTransform, noTransform } from "./transforms"
 import { ModelInfoView } from "./ModelInfoView"
 import { ApiErrorMessage } from "./ApiErrorMessage"
 import { ThinkingBudget } from "./ThinkingBudget"
-import { ReasoningEffort } from "./ReasoningEffort"
 import { DiffSettingsControl } from "./DiffSettingsControl"
 import { TemperatureControl } from "./TemperatureControl"
 import { RateLimitSecondsControl } from "./RateLimitSecondsControl"
 import { BedrockCustomArn } from "./providers/BedrockCustomArn"
 import { SeedControl } from "./SeedControl"
+import { buildDocLink } from "@src/utils/docLinks"
 
 export interface ApiOptionsProps {
 	uriScheme: string | undefined
@@ -254,8 +254,9 @@ const ApiOptions = ({
 			openai: "openai-compatible",
 		}
 
+		const slug = slugs[selectedProvider] || selectedProvider
 		return {
-			url: `https://docs.roocode.com/providers/${slugs[selectedProvider] || selectedProvider}`,
+			url: buildDocLink(`providers/${slug}`, "provider_docs"),
 			name,
 		}
 	}, [selectedProvider])
@@ -390,11 +391,7 @@ const ApiOptions = ({
 			)}
 
 			{selectedProvider === "litellm" && (
-				<LiteLLM
-					apiConfiguration={apiConfiguration}
-					setApiConfigurationField={setApiConfigurationField}
-					routerModels={routerModels}
-				/>
+				<LiteLLM apiConfiguration={apiConfiguration} setApiConfigurationField={setApiConfigurationField} />
 			)}
 
 			{selectedProvider === "human-relay" && (
@@ -452,22 +449,15 @@ const ApiOptions = ({
 						isDescriptionExpanded={isDescriptionExpanded}
 						setIsDescriptionExpanded={setIsDescriptionExpanded}
 					/>
-
-					<ThinkingBudget
-						key={`${selectedProvider}-${selectedModelId}`}
-						apiConfiguration={apiConfiguration}
-						setApiConfigurationField={setApiConfigurationField}
-						modelInfo={selectedModelInfo}
-					/>
 				</>
 			)}
 
-			{REASONING_MODELS.has(selectedModelId) && (
-				<ReasoningEffort
-					apiConfiguration={apiConfiguration}
-					setApiConfigurationField={setApiConfigurationField}
-				/>
-			)}
+			<ThinkingBudget
+				key={`${selectedProvider}-${selectedModelId}`}
+				apiConfiguration={apiConfiguration}
+				setApiConfigurationField={setApiConfigurationField}
+				modelInfo={selectedModelInfo}
+			/>
 
 			{!fromWelcomeView && (
 				<>

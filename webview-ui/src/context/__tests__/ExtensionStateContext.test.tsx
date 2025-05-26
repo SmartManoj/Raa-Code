@@ -202,6 +202,7 @@ describe("mergeExtensionState", () => {
 			showRooIgnoredFiles: true,
 			renderContext: "sidebar",
 			maxReadFileLine: 500,
+			autoCondenseContextPercent: 100,
 		}
 
 		const prevState: ExtensionState = {
@@ -215,6 +216,7 @@ describe("mergeExtensionState", () => {
 			apiConfiguration: { modelMaxThinkingTokens: 456, modelTemperature: 0.3 },
 			experiments: {
 				powerSteering: true,
+				autoCondenseContext: true,
 			} as Record<ExperimentId, boolean>,
 		}
 
@@ -227,6 +229,7 @@ describe("mergeExtensionState", () => {
 
 		expect(result.experiments).toEqual({
 			powerSteering: true,
+			autoCondenseContext: true,
 		})
 	})
 })
