@@ -106,7 +106,11 @@
 			"allowedCommands": "허용된 자동 실행 명령",
 			"allowedCommandsDescription": "\"실행 작업 항상 승인\"이 활성화되었을 때 자동 실행될 수 있는 명령 접두사. 모든 명령을 허용하려면 * 추가(주의해서 사용)",
 			"commandPlaceholder": "명령 접두사 입력(예: 'git ')",
-			"addButton": "추가"
+			"addButton": "추가",
+			"blacklistedCommands": "차단된 명령어",
+			"blacklistedCommandsDescription": "\"실행 작업 항상 승인\"이 활성화되어 있어도 실행이 차단될 명령 접두사입니다. 이러한 명령어는 항상 수동 승인이 필요합니다.",
+			"blacklistCommandPlaceholder": "차단할 명령 접두사 입력(예: 'rm ')",
+			"addBlacklistButton": "블랙리스트에 추가"
 		},
 		"apiRequestLimit": {
 			"title": "최대 요청 수",

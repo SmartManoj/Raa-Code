@@ -106,7 +106,11 @@
 			"allowedCommands": "Toegestane automatisch uit te voeren commando's",
 			"allowedCommandsDescription": "Commando-prefixen die automatisch kunnen worden uitgevoerd als 'Altijd goedkeuren voor uitvoeren' is ingeschakeld. Voeg * toe om alle commando's toe te staan (gebruik met voorzichtigheid).",
 			"commandPlaceholder": "Voer commando-prefix in (bijv. 'git ')",
-			"addButton": "Toevoegen"
+			"addButton": "Toevoegen",
+			"blacklistedCommands": "Geblokkeerde Commando's",
+			"blacklistedCommandsDescription": "Commando-prefixen die geblokkeerd worden van uitvoering, zelfs wanneer \"Altijd uitvoeringsoperaties goedkeuren\" is ingeschakeld. Deze commando's vereisen altijd handmatige goedkeuring.",
+			"blacklistCommandPlaceholder": "Voer commando-prefix in om te blokkeren (bijv. 'rm ')",
+			"addBlacklistButton": "Toevoegen aan Zwarte Lijst"
 		},
 		"apiRequestLimit": {
 			"title": "Maximale verzoeken",

@@ -106,7 +106,11 @@
 			"allowedCommands": "İzin Verilen Otomatik Yürütme Komutları",
 			"allowedCommandsDescription": "\"Yürütme işlemlerini her zaman onayla\" etkinleştirildiğinde otomatik olarak yürütülebilen komut önekleri. Tüm komutlara izin vermek için * ekleyin (dikkatli kullanın).",
 			"commandPlaceholder": "Komut öneki girin (örn. 'git ')",
-			"addButton": "Ekle"
+			"addButton": "Ekle",
+			"blacklistedCommands": "Engellenen Komutlar",
+			"blacklistedCommandsDescription": "\"Yürütme işlemlerini her zaman onayla\" etkinleştirildiğinde bile yürütülmesi engellenecek komut önekleri. Bu komutlar her zaman manuel onay gerektirecektir.",
+			"blacklistCommandPlaceholder": "Engellenecek komut öneki girin (örn. 'rm ')",
+			"addBlacklistButton": "Kara Listeye Ekle"
 		},
 		"apiRequestLimit": {
 			"title": "Maksimum İstek",
