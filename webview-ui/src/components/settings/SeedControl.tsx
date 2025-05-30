@@ -5,7 +5,7 @@ import { useDebounce } from "react-use"
 
 interface SeedControlProps {
 	value: number | undefined | null
-	onChange: (value: number | undefined | null) => void
+	onChange: (value: number | undefined) => void
 }
 
 export const SeedControl = ({ value, onChange }: SeedControlProps) => {
@@ -16,7 +16,7 @@ export const SeedControl = ({ value, onChange }: SeedControlProps) => {
 	useDebounce(
 		() => {
 			if (inputValue === "") {
-				onChange(null)
+				onChange(undefined)
 			} else {
 				const numValue = parseInt(inputValue, 10)
 				if (!isNaN(numValue)) {
