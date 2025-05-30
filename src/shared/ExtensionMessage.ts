@@ -138,6 +138,7 @@ export type ExtensionState = Pick<
 	| "alwaysAllowSubtasks"
 	| "alwaysAllowExecute"
 	| "allowedCommands"
+	| "blacklistedCommands"
 	| "allowedMaxRequests"
 	| "browserToolEnabled"
 	| "browserViewportSize"

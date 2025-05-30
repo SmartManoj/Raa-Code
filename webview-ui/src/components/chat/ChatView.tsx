@@ -81,6 +81,7 @@ const ChatViewComponent: React.ForwardRefRenderFunction<ChatViewRef, ChatViewPro
 		alwaysAllowExecute,
 		alwaysAllowMcp,
 		allowedCommands,
+		blacklistedCommands,
 		writeDelayMs,
 		mode,
 		setMode,
@@ -840,9 +841,9 @@ const ChatViewComponent: React.ForwardRefRenderFunction<ChatViewRef, ChatViewPro
 	const isAllowedCommand = useCallback(
 		(message: ClineMessage | undefined): boolean => {
 			if (message?.type !== "ask") return false
-			return validateCommand(message.text || "", allowedCommands || [])
+			return validateCommand(message.text || "", allowedCommands || [], blacklistedCommands || [])
 		},
-		[allowedCommands],
+		[allowedCommands, blacklistedCommands],
 	)
 
 	const isAutoApproved = useCallback(

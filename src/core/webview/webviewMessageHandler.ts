@@ -445,6 +445,15 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 				.update("allowedCommands", message.commands, vscode.ConfigurationTarget.Global)
 
 			break
+		case "blacklistedCommands":
+			await provider.context.globalState.update("blacklistedCommands", message.commands)
+
+			// Also update workspace settings.
+			await vscode.workspace
+				.getConfiguration(Package.name)
+				.update("blacklistedCommands", message.commands, vscode.ConfigurationTarget.Global)
+
+			break
 		case "openCustomModesSettings": {
 			const customModesFilePath = await provider.customModesManager.getCustomModesFilePath()
 
