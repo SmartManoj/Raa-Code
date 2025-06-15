@@ -56,6 +56,7 @@ export interface ExtensionStateContextType extends ExtensionState {
 	setShowRooIgnoredFiles: (value: boolean) => void
 	setShowAnnouncement: (value: boolean) => void
 	setAllowedCommands: (value: string[]) => void
+	setBlacklistedCommands: (value: string[]) => void
 	setAllowedMaxRequests: (value: number | undefined) => void
 	setSoundEnabled: (value: boolean) => void
 	setSoundVolume: (value: number) => void
@@ -149,6 +150,7 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 		taskHistory: [],
 		shouldShowAnnouncement: false,
 		allowedCommands: [],
+		blacklistedCommands: [],
 		soundEnabled: false,
 		soundVolume: 0.5,
 		ttsEnabled: false,
@@ -336,6 +338,7 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 		setAlwaysAllowSubtasks: (value) => setState((prevState) => ({ ...prevState, alwaysAllowSubtasks: value })),
 		setShowAnnouncement: (value) => setState((prevState) => ({ ...prevState, shouldShowAnnouncement: value })),
 		setAllowedCommands: (value) => setState((prevState) => ({ ...prevState, allowedCommands: value })),
+		setBlacklistedCommands: (value) => setState((prevState) => ({ ...prevState, blacklistedCommands: value })),
 		setAllowedMaxRequests: (value) => setState((prevState) => ({ ...prevState, allowedMaxRequests: value })),
 		setSoundEnabled: (value) => setState((prevState) => ({ ...prevState, soundEnabled: value })),
 		setSoundVolume: (value) => setState((prevState) => ({ ...prevState, soundVolume: value })),

@@ -116,7 +116,11 @@
 			"allowedCommands": "Dozwolone polecenia auto-wykonania",
 			"allowedCommandsDescription": "Prefiksy poleceń, które mogą być automatycznie wykonywane, gdy \"Zawsze zatwierdzaj operacje wykonania\" jest włączone. Dodaj * aby zezwolić na wszystkie polecenia (używaj z ostrożnością).",
 			"commandPlaceholder": "Wprowadź prefiks polecenia (np. 'git ')",
-			"addButton": "Dodaj"
+			"addButton": "Dodaj",
+			"blacklistedCommands": "Zablokowane Polecenia",
+			"blacklistedCommandsDescription": "Prefiksy poleceń, które będą zablokowane przed wykonaniem, nawet gdy \"Zawsze zatwierdzaj operacje wykonywania\" jest włączone. Te polecenia zawsze będą wymagać ręcznego zatwierdzenia.",
+			"blacklistCommandPlaceholder": "Wprowadź prefiks polecenia do zablokowania (np. 'rm ')",
+			"addBlacklistButton": "Dodaj do Czarnej Listy"
 		},
 		"apiRequestLimit": {
 			"title": "Maksymalna liczba żądań",

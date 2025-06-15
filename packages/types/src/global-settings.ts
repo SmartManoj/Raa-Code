@@ -46,6 +46,7 @@ export const globalSettingsSchema = z.object({
 	alwaysAllowSubtasks: z.boolean().optional(),
 	alwaysAllowExecute: z.boolean().optional(),
 	allowedCommands: z.array(z.string()).optional(),
+	blacklistedCommands: z.array(z.string()).optional(),
 	allowedMaxRequests: z.number().nullish(),
 	autoCondenseContext: z.boolean().optional(),
 	autoCondenseContextPercent: z.number().optional(),
@@ -107,7 +108,89 @@ export const globalSettingsSchema = z.object({
 
 export type GlobalSettings = z.infer<typeof globalSettingsSchema>
 
-export const GLOBAL_SETTINGS_KEYS = globalSettingsSchema.keyof().options
+export const GLOBAL_SETTINGS_KEYS = keysOf<GlobalSettings>()([
+	"currentApiConfigName",
+	"listApiConfigMeta",
+	"pinnedApiConfigs",
+
+	"lastShownAnnouncementId",
+	"customInstructions",
+	"taskHistory",
+
+	"condensingApiConfigId",
+	"customCondensingPrompt",
+
+	"autoApprovalEnabled",
+	"alwaysAllowReadOnly",
+	"alwaysAllowReadOnlyOutsideWorkspace",
+	"alwaysAllowWrite",
+	"alwaysAllowWriteOutsideWorkspace",
+	"writeDelayMs",
+	"alwaysAllowBrowser",
+	"alwaysApproveResubmit",
+	"requestDelaySeconds",
+	"alwaysAllowMcp",
+	"alwaysAllowModeSwitch",
+	"alwaysAllowSubtasks",
+	"alwaysAllowExecute",
+	"allowedCommands",
+	"blacklistedCommands",
+	"allowedMaxRequests",
+	"autoCondenseContext",
+	"autoCondenseContextPercent",
+
+	"browserToolEnabled",
+	"browserViewportSize",
+	"screenshotQuality",
+	"remoteBrowserEnabled",
+	"remoteBrowserHost",
+
+	"enableCheckpoints",
+
+	"ttsEnabled",
+	"ttsSpeed",
+	"soundEnabled",
+	"soundVolume",
+
+	"maxOpenTabsContext",
+	"maxWorkspaceFiles",
+	"showRooIgnoredFiles",
+	"maxReadFileLine",
+
+	"terminalOutputLineLimit",
+	"terminalShellIntegrationTimeout",
+	"terminalShellIntegrationDisabled",
+	"terminalCommandDelay",
+	"terminalPowershellCounter",
+	"terminalZshClearEolMark",
+	"terminalZshOhMy",
+	"terminalZshP10k",
+	"terminalZdotdir",
+	"terminalCompressProgressBar",
+
+	"rateLimitSeconds",
+	"diffEnabled",
+	"fuzzyMatchThreshold",
+	"experiments",
+
+	"codebaseIndexModels",
+	"codebaseIndexConfig",
+
+	"language",
+
+	"telemetrySetting",
+	"mcpEnabled",
+	"enableMcpServerCreation",
+
+	"mode",
+	"modeApiConfigs",
+	"customModes",
+	"customModePrompts",
+	"customSupportPrompts",
+	"enhancementApiConfigId",
+	"cachedChromeHostUrl",
+	"historyPreviewCollapsed",
+])
 
 /**
  * RooCodeSettings

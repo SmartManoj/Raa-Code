@@ -109,22 +109,56 @@ export function isAllowedSingleCommand(command: string, allowedCommands: string[
 }
 
 /**
- * Check if a command string is allowed based on the allowed command prefixes.
+ * Check if a single command is blacklisted based on prefix matching.
+ */
+export function isBlacklistedSingleCommand(command: string, blacklistedCommands: string[]): boolean {
+	if (!command || !blacklistedCommands?.length) return false
+	const trimmedCommand = command.trim().toLowerCase()
+	return blacklistedCommands.some((prefix) => trimmedCommand.startsWith(prefix.toLowerCase()))
+}
+
+/**
+ * Check if a command string is allowed based on the allowed command prefixes and blacklisted commands.
  * This version also blocks subshell attempts by checking for `$(` or `` ` ``.
  */
-export function validateCommand(command: string, allowedCommands: string[]): boolean {
+export function validateCommand(
+	command: string,
+	allowedCommands: string[],
+	blacklistedCommands: string[] = [],
+): boolean {
 	if (!command?.trim()) return true
 
-	// If '*' is in allowed commands, everything is allowed
-	if (allowedCommands?.includes("*")) return true
+	// If '*' is in allowed commands, check blacklist but allow everything else (including subshells)
+	if (allowedCommands?.includes("*")) {
+		// Parse into sub-commands (split by &&, ||, ;, |)
+		const subCommands = parseCommand(command)
 
-	// Block subshell execution attempts
+		// Check if any sub-command is blacklisted
+		const hasBlacklistedCommand = subCommands.some((cmd) => {
+			const cmdWithoutRedirection = cmd.replace(/\d*>&\d*/, "").trim()
+			return isBlacklistedSingleCommand(cmdWithoutRedirection, blacklistedCommands)
+		})
+
+		return !hasBlacklistedCommand
+	}
+
+	// Block subshell execution attempts when not using wildcard
 	if (command.includes("$(") || command.includes("`")) {
 		return false
 	}
 
 	// Parse into sub-commands (split by &&, ||, ;, |)
 	const subCommands = parseCommand(command)
+
+	// Check if any sub-command is blacklisted first
+	const hasBlacklistedCommand = subCommands.some((cmd) => {
+		const cmdWithoutRedirection = cmd.replace(/\d*>&\d*/, "").trim()
+		return isBlacklistedSingleCommand(cmdWithoutRedirection, blacklistedCommands)
+	})
+
+	if (hasBlacklistedCommand) {
+		return false
+	}
 
 	// Then ensure every sub-command starts with an allowed prefix
 	return subCommands.every((cmd) => {

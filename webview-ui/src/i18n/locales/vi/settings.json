@@ -116,7 +116,11 @@
 			"allowedCommands": "Các lệnh tự động thực thi được phép",
 			"allowedCommandsDescription": "Tiền tố lệnh có thể được tự động thực thi khi \"Luôn phê duyệt các hoạt động thực thi\" được bật. Thêm * để cho phép tất cả các lệnh (sử dụng cẩn thận).",
 			"commandPlaceholder": "Nhập tiền tố lệnh (ví dụ: 'git ')",
-			"addButton": "Thêm"
+			"addButton": "Thêm",
+			"blacklistedCommands": "Lệnh Bị Chặn",
+			"blacklistedCommandsDescription": "Các tiền tố lệnh sẽ bị chặn thực thi ngay cả khi \"Luôn phê duyệt các thao tác thực thi\" được bật. Những lệnh này sẽ luôn yêu cầu phê duyệt thủ công.",
+			"blacklistCommandPlaceholder": "Nhập tiền tố lệnh để chặn (ví dụ: 'rm ')",
+			"addBlacklistButton": "Thêm vào Danh Sách Đen"
 		},
 		"apiRequestLimit": {
 			"title": "Số lượng yêu cầu tối đa",

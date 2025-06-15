@@ -116,7 +116,11 @@
 			"allowedCommands": "Erlaubte Auto-Ausführungsbefehle",
 			"allowedCommandsDescription": "Befehlspräfixe, die automatisch ausgeführt werden können, wenn 'Ausführungsoperationen immer genehmigen' aktiviert ist. Fügen Sie * hinzu, um alle Befehle zu erlauben (mit Vorsicht verwenden).",
 			"commandPlaceholder": "Befehlspräfix eingeben (z.B. 'git ')",
-			"addButton": "Hinzufügen"
+			"addButton": "Hinzufügen",
+			"blacklistedCommands": "Gesperrte Befehle",
+			"blacklistedCommandsDescription": "Befehlspräfixe, die auch bei aktivierter Option \"Ausführungsoperationen immer genehmigen\" blockiert werden. Diese Befehle erfordern immer eine manuelle Genehmigung.",
+			"blacklistCommandPlaceholder": "Befehlspräfix zum Blockieren eingeben (z.B. 'rm ')",
+			"addBlacklistButton": "Zur Sperrliste hinzufügen"
 		},
 		"apiRequestLimit": {
 			"title": "Maximale Anfragen",

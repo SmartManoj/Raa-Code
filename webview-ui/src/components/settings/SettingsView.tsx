@@ -122,6 +122,7 @@ const SettingsView = forwardRef<SettingsViewRef, SettingsViewProps>(({ onDone, t
 		alwaysAllowReadOnly,
 		alwaysAllowReadOnlyOutsideWorkspace,
 		allowedCommands,
+		blacklistedCommands,
 		allowedMaxRequests,
 		language,
 		alwaysAllowBrowser,
@@ -271,6 +272,7 @@ const SettingsView = forwardRef<SettingsViewRef, SettingsViewProps>(({ onDone, t
 			vscode.postMessage({ type: "alwaysAllowBrowser", bool: alwaysAllowBrowser })
 			vscode.postMessage({ type: "alwaysAllowMcp", bool: alwaysAllowMcp })
 			vscode.postMessage({ type: "allowedCommands", commands: allowedCommands ?? [] })
+			vscode.postMessage({ type: "blacklistedCommands", commands: blacklistedCommands ?? [] })
 			vscode.postMessage({ type: "allowedMaxRequests", value: allowedMaxRequests ?? undefined })
 			vscode.postMessage({ type: "autoCondenseContext", bool: autoCondenseContext })
 			vscode.postMessage({ type: "autoCondenseContextPercent", value: autoCondenseContextPercent })
@@ -596,6 +598,7 @@ const SettingsView = forwardRef<SettingsViewRef, SettingsViewProps>(({ onDone, t
 							alwaysAllowSubtasks={alwaysAllowSubtasks}
 							alwaysAllowExecute={alwaysAllowExecute}
 							allowedCommands={allowedCommands}
+							blacklistedCommands={blacklistedCommands}
 							setCachedStateField={setCachedStateField}
 						/>
 					)}

@@ -2,7 +2,12 @@
 
 // npx jest src/utils/__tests__/command-validation.test.ts
 
-import { parseCommand, isAllowedSingleCommand, validateCommand } from "../command-validation"
+import {
+	parseCommand,
+	isAllowedSingleCommand,
+	isBlacklistedSingleCommand,
+	validateCommand,
+} from "../command-validation"
 
 describe("Command Validation", () => {
 	describe("parseCommand", () => {
@@ -68,6 +73,33 @@ describe("Command Validation", () => {
 		})
 	})
 
+	describe("isBlacklistedSingleCommand", () => {
+		const blacklistedCommands = ["rm ", "sudo ", "del "]
+
+		it("matches blacklisted commands case-insensitively", () => {
+			expect(isBlacklistedSingleCommand("RM -rf /", blacklistedCommands)).toBe(true)
+			expect(isBlacklistedSingleCommand("sudo apt install", blacklistedCommands)).toBe(true)
+			expect(isBlacklistedSingleCommand("DEL file.txt", blacklistedCommands)).toBe(true)
+		})
+
+		it("matches blacklisted command prefixes", () => {
+			expect(isBlacklistedSingleCommand("rm -rf /home", blacklistedCommands)).toBe(true)
+			expect(isBlacklistedSingleCommand("sudo rm file", blacklistedCommands)).toBe(true)
+			expect(isBlacklistedSingleCommand("del *.txt", blacklistedCommands)).toBe(true)
+		})
+
+		it("allows non-blacklisted commands", () => {
+			expect(isBlacklistedSingleCommand("npm test", blacklistedCommands)).toBe(false)
+			expect(isBlacklistedSingleCommand("echo hello", blacklistedCommands)).toBe(false)
+			expect(isBlacklistedSingleCommand("git status", blacklistedCommands)).toBe(false)
+		})
+
+		it("handles empty inputs", () => {
+			expect(isBlacklistedSingleCommand("", blacklistedCommands)).toBe(false)
+			expect(isBlacklistedSingleCommand("rm file", [])).toBe(false)
+		})
+	})
+
 	describe("validateCommand", () => {
 		const allowedCommands = ["npm test", "npm run", "echo", "Select-String"]
 
@@ -120,6 +152,33 @@ describe("Command Validation", () => {
 			// Should even allow subshell commands that are normally blocked
 			expect(validateCommand("npm test $(echo dangerous)", wildcardAllowedCommands)).toBe(true)
 			expect(validateCommand("npm test `rm -rf /`", wildcardAllowedCommands)).toBe(true)
+		})
+
+		it("blocks blacklisted commands even if allowed", () => {
+			const allowedWithBlacklisted = ["npm test", "npm run", "echo", "rm "]
+			const blacklistedCommands = ["rm ", "sudo ", "del "]
+			expect(validateCommand("rm -rf /", allowedWithBlacklisted, blacklistedCommands)).toBe(false)
+			expect(validateCommand("sudo apt install", allowedWithBlacklisted, blacklistedCommands)).toBe(false)
+			expect(validateCommand("npm test", allowedWithBlacklisted, blacklistedCommands)).toBe(true)
+		})
+
+		it("validates chained commands with blacklist", () => {
+			const blacklistedCommands = ["rm ", "sudo ", "del "]
+			expect(validateCommand("npm test && npm run build", allowedCommands, blacklistedCommands)).toBe(true)
+			expect(validateCommand("npm test && rm file", allowedCommands, blacklistedCommands)).toBe(false)
+			expect(validateCommand("npm test && dangerous", allowedCommands, blacklistedCommands)).toBe(false)
+		})
+
+		it("handles wildcard allowed commands with blacklist", () => {
+			const blacklistedCommands = ["rm ", "sudo ", "del "]
+			expect(validateCommand("any command", ["*"], blacklistedCommands)).toBe(true)
+			expect(validateCommand("rm -rf /", ["*"], blacklistedCommands)).toBe(false) // Still blocked by blacklist
+			expect(validateCommand("sudo apt install", ["*"], blacklistedCommands)).toBe(false) // Still blocked by blacklist
+		})
+
+		it("works without blacklist parameter (backward compatibility)", () => {
+			expect(validateCommand("npm test", allowedCommands)).toBe(true)
+			expect(validateCommand("dangerous", allowedCommands)).toBe(false)
 		})
 	})
 })

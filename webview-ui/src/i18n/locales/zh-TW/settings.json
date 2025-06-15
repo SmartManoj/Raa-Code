@@ -116,7 +116,11 @@
 			"allowedCommands": "允許自動執行的命令",
 			"allowedCommandsDescription": "當「始終核准執行操作」啟用時可以自動執行的命令前綴。新增 * 以允許所有命令（請謹慎使用）。",
 			"commandPlaceholder": "輸入命令前綴（例如 'git '）",
-			"addButton": "新增"
+			"addButton": "新增",
+			"blacklistedCommands": "封鎖指令",
+			"blacklistedCommandsDescription": "即使啟用「總是核准執行操作」，這些指令前綴也會被封鎖執行。這些指令總是需要手動核准。",
+			"blacklistCommandPlaceholder": "輸入要封鎖的指令前綴（例如 'rm '）",
+			"addBlacklistButton": "新增至封鎖清單"
 		},
 		"apiRequestLimit": {
 			"title": "最大請求數",

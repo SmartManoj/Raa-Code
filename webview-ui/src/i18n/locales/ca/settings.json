@@ -116,7 +116,11 @@
 			"allowedCommands": "Comandes d'auto-execució permeses",
 			"allowedCommandsDescription": "Prefixos de comandes que poden ser executats automàticament quan \"Aprovar sempre operacions d'execució\" està habilitat. Afegeix * per permetre totes les comandes (usar amb precaució).",
 			"commandPlaceholder": "Introduïu prefix de comanda (ex. 'git ')",
-			"addButton": "Afegir"
+			"addButton": "Afegir",
+			"blacklistedCommands": "Comandes Bloquejades",
+			"blacklistedCommandsDescription": "Prefixos de comandes que seran bloquejats de l'execució fins i tot quan \"Aprovar sempre operacions d'execució\" estigui habilitat. Aquestes comandes sempre requeriran aprovació manual.",
+			"blacklistCommandPlaceholder": "Introduïu prefix de comanda a bloquejar (ex. 'rm ')",
+			"addBlacklistButton": "Afegir a la Llista Negra"
 		},
 		"apiRequestLimit": {
 			"title": "Màximes Sol·licituds",

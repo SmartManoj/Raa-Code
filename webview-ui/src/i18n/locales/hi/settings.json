@@ -116,7 +116,11 @@
 			"allowedCommands": "अनुमत स्वतः-निष्पादन कमांड",
 			"allowedCommandsDescription": "कमांड प्रीफिक्स जो स्वचालित रूप से निष्पादित किए जा सकते हैं जब \"निष्पादन ऑपरेशन हमेशा अनुमोदित करें\" सक्षम है। सभी कमांड की अनुमति देने के लिए * जोड़ें (सावधानी से उपयोग करें)।",
 			"commandPlaceholder": "कमांड प्रीफिक्स दर्ज करें (उदा. 'git ')",
-			"addButton": "जोड़ें"
+			"addButton": "जोड़ें",
+			"blacklistedCommands": "ब्लॉक की गई कमांड्स",
+			"blacklistedCommandsDescription": "कमांड प्रीफिक्स जो \"हमेशा execute ऑपरेशन्स को approve करें\" सक्षम होने पर भी execution से ब्लॉक हो जाएंगे। इन कमांड्स के लिए हमेशा मैन्युअल approval की आवश्यकता होगी।",
+			"blacklistCommandPlaceholder": "ब्लॉक करने के लिए कमांड प्रीफिक्स दर्ज करें (उदा. 'rm ')",
+			"addBlacklistButton": "ब्लैकलिस्ट में जोड़ें"
 		},
 		"apiRequestLimit": {
 			"title": "अधिकतम अनुरोध",

@@ -116,7 +116,11 @@
 			"allowedCommands": "許可された自動実行コマンド",
 			"allowedCommandsDescription": "「実行操作を常に承認」が有効な場合に自動実行できるコマンドプレフィックス。すべてのコマンドを許可するには * を追加します（注意して使用してください）。",
 			"commandPlaceholder": "コマンドプレフィックスを入力（例：'git '）",
-			"addButton": "追加"
+			"addButton": "追加",
+			"blacklistedCommands": "ブロックされたコマンド",
+			"blacklistedCommandsDescription": "「実行操作を常に承認する」が有効になっている場合でも、実行がブロックされるコマンドプレフィックス。これらのコマンドは常に手動承認が必要です。",
+			"blacklistCommandPlaceholder": "ブロックするコマンドプレフィックスを入力（例：'rm '）",
+			"addBlacklistButton": "ブラックリストに追加"
 		},
 		"apiRequestLimit": {
 			"title": "最大リクエスト数",

@@ -30,6 +30,7 @@ export interface WebviewMessage {
 		| "getListApiConfiguration"
 		| "customInstructions"
 		| "allowedCommands"
+		| "blacklistedCommands"
 		| "alwaysAllowReadOnly"
 		| "alwaysAllowReadOnlyOutsideWorkspace"
 		| "alwaysAllowWrite"

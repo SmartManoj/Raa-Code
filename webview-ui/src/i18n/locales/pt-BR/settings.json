@@ -116,7 +116,11 @@
 			"allowedCommands": "Comandos de auto-execução permitidos",
 			"allowedCommandsDescription": "Prefixos de comando que podem ser auto-executados quando \"Aprovar sempre operações de execução\" está ativado. Adicione * para permitir todos os comandos (use com cautela).",
 			"commandPlaceholder": "Digite o prefixo do comando (ex. 'git ')",
-			"addButton": "Adicionar"
+			"addButton": "Adicionar",
+			"blacklistedCommands": "Comandos Bloqueados",
+			"blacklistedCommandsDescription": "Prefixos de comandos que serão bloqueados da execução mesmo quando \"Sempre aprovar operações de execução\" estiver habilitado. Estes comandos sempre exigirão aprovação manual.",
+			"blacklistCommandPlaceholder": "Digite o prefixo do comando para bloquear (ex. 'rm ')",
+			"addBlacklistButton": "Adicionar à Lista Negra"
 		},
 		"apiRequestLimit": {
 			"title": "Máximo de Solicitações",
