@@ -66,8 +66,8 @@ build:
 
 bundle:
 
-- `roo-cline` [input: * | output: dist]
+- `raa-code` [input: * | output: dist]
 
 vsix:
 
-- `roo-cline` [input: dist | output: bin]
+- `raa-code` [input: dist | output: bin]

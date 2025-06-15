@@ -6,7 +6,7 @@ describe("generatePackageJson", () => {
 	it("should be a test", () => {
 		const generatedPackageJson = generatePackageJson({
 			packageJson: {
-				name: "roo-cline",
+				name: "raa-code",
 				displayName: "%extension.displayName%",
 				description: "%extension.description%",
 				publisher: "RooVeterinaryInc",
@@ -16,29 +16,29 @@ describe("generatePackageJson", () => {
 					viewsContainers: {
 						activitybar: [
 							{
-								id: "roo-cline-ActivityBar",
+								id: "raa-code-ActivityBar",
 								title: "%views.activitybar.title%",
 								icon: "assets/icons/icon.svg",
 							},
 						],
 					},
 					views: {
-						"roo-cline-ActivityBar": [
+						"raa-code-ActivityBar": [
 							{
 								type: "webview",
-								id: "roo-cline.SidebarProvider",
+								id: "raa-code.SidebarProvider",
 								name: "",
 							},
 						],
 					},
 					commands: [
 						{
-							command: "roo-cline.plusButtonClicked",
+							command: "raa-code.plusButtonClicked",
 							title: "%command.newTask.title%",
 							icon: "$(add)",
 						},
 						{
-							command: "roo-cline.openInNewTab",
+							command: "raa-code.openInNewTab",
 							title: "%command.openInNewTab.title%",
 							category: "%configuration.title%",
 						},
@@ -46,48 +46,48 @@ describe("generatePackageJson", () => {
 					menus: {
 						"editor/context": [
 							{
-								submenu: "roo-cline.contextMenu",
+								submenu: "raa-code.contextMenu",
 								group: "navigation",
 							},
 						],
-						"roo-cline.contextMenu": [
+						"raa-code.contextMenu": [
 							{
-								command: "roo-cline.addToContext",
+								command: "raa-code.addToContext",
 								group: "1_actions@1",
 							},
 						],
 						"editor/title": [
 							{
-								command: "roo-cline.plusButtonClicked",
+								command: "raa-code.plusButtonClicked",
 								group: "navigation@1",
-								when: "activeWebviewPanelId == roo-cline.TabPanelProvider",
+								when: "activeWebviewPanelId == raa-code.TabPanelProvider",
 							},
 							{
-								command: "roo-cline.settingsButtonClicked",
+								command: "raa-code.settingsButtonClicked",
 								group: "navigation@6",
-								when: "activeWebviewPanelId == roo-cline.TabPanelProvider",
+								when: "activeWebviewPanelId == raa-code.TabPanelProvider",
 							},
 							{
-								command: "roo-cline.accountButtonClicked",
+								command: "raa-code.accountButtonClicked",
 								group: "navigation@6",
-								when: "activeWebviewPanelId == roo-cline.TabPanelProvider && config.roo-cline.rooCodeCloudEnabled",
+								when: "activeWebviewPanelId == raa-code.TabPanelProvider && config.raa-code.rooCodeCloudEnabled",
 							},
 						],
 					},
 					submenus: [
 						{
-							id: "roo-cline.contextMenu",
+							id: "raa-code.contextMenu",
 							label: "%views.contextMenu.label%",
 						},
 						{
-							id: "roo-cline.terminalMenu",
+							id: "raa-code.terminalMenu",
 							label: "%views.terminalMenu.label%",
 						},
 					],
 					configuration: {
 						title: "%configuration.title%",
 						properties: {
-							"roo-cline.allowedCommands": {
+							"raa-code.allowedCommands": {
 								type: "array",
 								items: {
 									type: "string",
@@ -95,7 +95,7 @@ describe("generatePackageJson", () => {
 								default: ["npm test", "npm install", "tsc", "git log", "git diff", "git show"],
 								description: "%commands.allowedCommands.description%",
 							},
-							"roo-cline.customStoragePath": {
+							"raa-code.customStoragePath": {
 								type: "string",
 								default: "",
 								description: "%settings.customStoragePath.description%",
@@ -115,7 +115,7 @@ describe("generatePackageJson", () => {
 				icon: "assets/icons/icon-nightly.png",
 				scripts: {},
 			},
-			substitution: ["roo-cline", "roo-code-nightly"],
+			substitution: ["raa-code", "roo-code-nightly"],
 		})
 
 		expect(generatedPackageJson).toStrictEqual({
