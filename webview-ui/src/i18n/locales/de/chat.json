@@ -10,7 +10,9 @@
 		"contextWindow": "Kontextfenster:",
 		"closeAndStart": "Aufgabe schließen und neue starten",
 		"export": "Aufgabenverlauf exportieren",
-		"delete": "Aufgabe löschen (Shift + Klick zum Überspringen der Bestätigung)"
+		"delete": "Aufgabe löschen (Shift + Klick zum Überspringen der Bestätigung)",
+		"share": "Aufgabe teilen",
+		"condenseContext": "Kontext intelligent komprimieren"
 	},
 	"unpin": "Lösen von oben",
 	"pin": "Anheften",
@@ -69,7 +71,7 @@
 		"tooltip": "Aktuelle Operation abbrechen"
 	},
 	"scrollToBottom": "Zum Chat-Ende scrollen",
-	"about": "Generiere, überarbeite und debugge Code mit KI-Unterstützung.<br />Weitere Informationen findest du in unserer <DocsLink>Dokumentation</DocsLink>.",
+	"about": "Generiere, überarbeite und debugge Code mit KI-Unterstützung. Weitere Informationen findest du in unserer <DocsLink>Dokumentation</DocsLink>.",
 	"onboarding": "<strong>Deine Aufgabenliste in diesem Arbeitsbereich ist leer.</strong> Beginne mit der Eingabe einer Aufgabe unten. Du bist dir nicht sicher, wie du anfangen sollst? Lies mehr darüber, was Roo für dich tun kann, in <DocsLink>den Dokumenten</DocsLink>.",
 	"rooTips": {
 		"boomerangTasks": {
@@ -139,16 +141,20 @@
 	},
 	"fileOperations": {
 		"wantsToRead": "Roo möchte diese Datei lesen:",
+		"wantsToReadAndXMore": "Roo möchte diese Datei und {{count}} weitere lesen:",
 		"wantsToReadOutsideWorkspace": "Roo möchte diese Datei außerhalb des Arbeitsbereichs lesen:",
 		"didRead": "Roo hat diese Datei gelesen:",
 		"wantsToEdit": "Roo möchte diese Datei bearbeiten:",
 		"wantsToEditOutsideWorkspace": "Roo möchte diese Datei außerhalb des Arbeitsbereichs bearbeiten:",
+		"wantsToEditProtected": "Roo möchte eine geschützte Konfigurationsdatei bearbeiten:",
 		"wantsToCreate": "Roo möchte eine neue Datei erstellen:",
 		"wantsToSearchReplace": "Roo möchte in dieser Datei suchen und ersetzen:",
 		"didSearchReplace": "Roo hat Suchen und Ersetzen in dieser Datei durchgeführt:",
 		"wantsToInsert": "Roo möchte Inhalte in diese Datei einfügen:",
 		"wantsToInsertWithLineNumber": "Roo möchte Inhalte in diese Datei in Zeile {{lineNumber}} einfügen:",
-		"wantsToInsertAtEnd": "Roo möchte Inhalte am Ende dieser Datei anhängen:"
+		"wantsToInsertAtEnd": "Roo möchte Inhalte am Ende dieser Datei anhängen:",
+		"wantsToReadMultiple": "Roo möchte mehrere Dateien lesen:",
+		"wantsToApplyBatchChanges": "Roo möchte Änderungen an mehreren Dateien vornehmen:"
 	},
 	"directoryOperations": {
 		"wantsToViewTopLevel": "Roo möchte die Dateien auf oberster Ebene in diesem Verzeichnis anzeigen:",
@@ -158,7 +164,15 @@
 		"wantsToViewDefinitions": "Roo möchte Quellcode-Definitionsnamen in diesem Verzeichnis anzeigen:",
 		"didViewDefinitions": "Roo hat Quellcode-Definitionsnamen in diesem Verzeichnis angezeigt:",
 		"wantsToSearch": "Roo möchte dieses Verzeichnis nach <code>{{regex}}</code> durchsuchen:",
-		"didSearch": "Roo hat dieses Verzeichnis nach <code>{{regex}}</code> durchsucht:"
+		"didSearch": "Roo hat dieses Verzeichnis nach <code>{{regex}}</code> durchsucht:",
+		"wantsToSearchOutsideWorkspace": "Roo möchte dieses Verzeichnis (außerhalb des Arbeitsbereichs) nach <code>{{regex}}</code> durchsuchen:",
+		"didSearchOutsideWorkspace": "Roo hat dieses Verzeichnis (außerhalb des Arbeitsbereichs) nach <code>{{regex}}</code> durchsucht:",
+		"wantsToViewTopLevelOutsideWorkspace": "Roo möchte die Dateien auf oberster Ebene in diesem Verzeichnis (außerhalb des Arbeitsbereichs) anzeigen:",
+		"didViewTopLevelOutsideWorkspace": "Roo hat die Dateien auf oberster Ebene in diesem Verzeichnis (außerhalb des Arbeitsbereichs) angezeigt:",
+		"wantsToViewRecursiveOutsideWorkspace": "Roo möchte rekursiv alle Dateien in diesem Verzeichnis (außerhalb des Arbeitsbereichs) anzeigen:",
+		"didViewRecursiveOutsideWorkspace": "Roo hat rekursiv alle Dateien in diesem Verzeichnis (außerhalb des Arbeitsbereichs) angezeigt:",
+		"wantsToViewDefinitionsOutsideWorkspace": "Roo möchte Quellcode-Definitionsnamen in diesem Verzeichnis (außerhalb des Arbeitsbereichs) anzeigen:",
+		"didViewDefinitionsOutsideWorkspace": "Roo hat Quellcode-Definitionsnamen in diesem Verzeichnis (außerhalb des Arbeitsbereichs) angezeigt:"
 	},
 	"commandOutput": "Befehlsausgabe",
 	"response": "Antwort",
@@ -198,16 +212,22 @@
 		"thinking": "Denke nach",
 		"seconds": "{{count}}s"
 	},
+	"contextCondense": {
+		"title": "Kontext komprimiert",
+		"condensing": "Kontext wird komprimiert...",
+		"errorHeader": "Kontext konnte nicht komprimiert werden",
+		"tokens": "Tokens"
+	},
 	"followUpSuggest": {
 		"copyToInput": "In Eingabefeld kopieren (oder Shift + Klick)"
 	},
 	"announcement": {
-		"title": "🎉 Roo Code 3.17 veröffentlicht",
-		"description": "Roo Code 3.17 bringt leistungsstarke neue Funktionen und Verbesserungen basierend auf deinem Feedback.",
+		"title": "🎉 Roo Code {{version}} veröffentlicht",
+		"description": "Roo Code {{version}} bringt leistungsstarke neue Funktionen und Verbesserungen basierend auf deinem Feedback.",
 		"whatsNew": "Was ist neu",
-		"feature1": "<bold>Implizites Caching für Gemini</bold>: Gemini API-Aufrufe werden jetzt automatisch zwischengespeichert, wodurch API-Kosten reduziert werden",
-		"feature2": "<bold>Intelligentere Modusauswahl</bold>: Modusdefinitionen können jetzt Hinweise enthalten, wann jeder Modus verwendet werden sollte, was eine bessere Orchestrierung ermöglicht",
-		"feature3": "<bold>Intelligente Kontextkomprimierung</bold>: Fasst Gesprächsverlauf intelligent zusammen, wenn der Kontext voll wird, anstatt ihn abzuschneiden (aktiviere dies in Einstellungen -> Experimentell)",
+		"feature1": "<bold>Experimenteller Marketplace</bold>: Entdecke und installiere Modi und MCPs im neuen Marketplace (aktivierbar in den <experimentalSettingsLink>Experimentellen Einstellungen</experimentalSettingsLink>)",
+		"feature2": "<bold>Verbesserte Dateioperationen</bold>: Mehrere gleichzeitige Dateischreibvorgänge in experimentellen Einstellungen und gleichzeitige Lesevorgänge jetzt in den <contextSettingsLink>Kontext-Einstellungen</contextSettingsLink>",
+		"feature3": "<bold>MCP-Verbesserungen & mehr</bold>: Erweiterte MCP-Unterstützung, Mermaid-Steuerungen, Amazon Bedrock Thinking-Unterstützung und vieles mehr!",
 		"hideButton": "Ankündigung ausblenden",
 		"detailsDiscussLinks": "Erhalte mehr Details und diskutiere auf <discordLink>Discord</discordLink> und <redditLink>Reddit</redditLink> 🚀"
 	},
@@ -243,9 +263,37 @@
 		}
 	},
 	"systemPromptWarning": "WARNUNG: Benutzerdefinierte Systemaufforderung aktiv. Dies kann die Funktionalität erheblich beeinträchtigen und zu unvorhersehbarem Verhalten führen.",
+	"profileViolationWarning": "Das aktuelle Profil verstößt gegen die Einstellungen deiner Organisation",
 	"shellIntegration": {
 		"title": "Befehlsausführungswarnung",
 		"description": "Dein Befehl wird ohne VSCode Terminal-Shell-Integration ausgeführt. Um diese Warnung zu unterdrücken, kannst du die Shell-Integration im Abschnitt <strong>Terminal</strong> der <settingsLink>Roo Code Einstellungen</settingsLink> deaktivieren oder die VSCode Terminal-Integration mit dem Link unten beheben.",
 		"troubleshooting": "Klicke hier für die Shell-Integrationsdokumentation."
+	},
+	"ask": {
+		"autoApprovedRequestLimitReached": {
+			"title": "Limit für automatisch genehmigte Anfragen erreicht",
+			"description": "Roo hat das automatisch genehmigte Limit von {{count}} API-Anfrage(n) erreicht. Möchtest du den Zähler zurücksetzen und mit der Aufgabe fortfahren?",
+			"button": "Zurücksetzen und fortfahren"
+		}
+	},
+	"codebaseSearch": {
+		"wantsToSearch": "Roo möchte den Codebase nach <code>{{query}}</code> durchsuchen:",
+		"wantsToSearchWithPath": "Roo möchte den Codebase nach <code>{{query}}</code> in <code>{{path}}</code> durchsuchen:",
+		"didSearch": "{{count}} Ergebnis(se) für <code>{{query}}</code> gefunden:"
+	},
+	"read-batch": {
+		"approve": {
+			"title": "Alle genehmigen"
+		},
+		"deny": {
+			"title": "Alle ablehnen"
+		}
+	},
+	"indexingStatus": {
+		"ready": "Index bereit",
+		"indexing": "Indizierung {{percentage}}%",
+		"indexed": "Indiziert",
+		"error": "Index-Fehler",
+		"status": "Index-Status"
 	}
 }

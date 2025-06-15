@@ -7,9 +7,11 @@
 		"tokens": "Tokens:",
 		"cache": "Cache:",
 		"apiCost": "API Cost:",
+		"condenseContext": "Intelligently condense context",
 		"contextWindow": "Context Length:",
 		"closeAndStart": "Close task and start a new one",
 		"export": "Export task history",
+		"share": "Share task",
 		"delete": "Delete Task (Shift + Click to skip confirmation)"
 	},
 	"unpin": "Unpin",
@@ -44,6 +46,14 @@
 		"title": "Approve",
 		"tooltip": "Approve this action"
 	},
+	"read-batch": {
+		"approve": {
+			"title": "Approve All"
+		},
+		"deny": {
+			"title": "Deny All"
+		}
+	},
 	"runCommand": {
 		"title": "Run Command",
 		"tooltip": "Execute this command"
@@ -69,7 +79,7 @@
 		"tooltip": "Cancel the current operation"
 	},
 	"scrollToBottom": "Scroll to bottom of chat",
-	"about": "Generate, refactor, and debug code with AI assistance.<br />Check out our <DocsLink>documentation</DocsLink> to learn more.",
+	"about": "Generate, refactor, and debug code with AI assistance. Check out our <DocsLink>documentation</DocsLink> to learn more.",
 	"onboarding": "Your task list in this workspace is empty.",
 	"rooTips": {
 		"boomerangTasks": {
@@ -129,15 +139,25 @@
 		},
 		"current": "Current"
 	},
+	"contextCondense": {
+		"title": "Context Condensed",
+		"condensing": "Condensing context...",
+		"errorHeader": "Failed to condense context",
+		"tokens": "tokens"
+	},
 	"instructions": {
 		"wantsToFetch": "Roo wants to fetch detailed instructions to assist with the current task"
 	},
 	"fileOperations": {
 		"wantsToRead": "Roo wants to read this file:",
+		"wantsToReadMultiple": "Roo wants to read multiple files:",
+		"wantsToReadAndXMore": "Roo wants to read this file and {{count}} more:",
 		"wantsToReadOutsideWorkspace": "Roo wants to read this file outside of the workspace:",
 		"didRead": "Roo read this file:",
 		"wantsToEdit": "Roo wants to edit this file:",
 		"wantsToEditOutsideWorkspace": "Roo wants to edit this file outside of the workspace:",
+		"wantsToEditProtected": "Roo wants to edit a protected configuration file:",
+		"wantsToApplyBatchChanges": "Roo wants to apply changes to multiple files:",
 		"wantsToCreate": "Roo wants to create a new file:",
 		"wantsToSearchReplace": "Roo wants to search and replace in this file:",
 		"didSearchReplace": "Roo performed search and replace on this file:",
@@ -148,12 +168,25 @@
 	"directoryOperations": {
 		"wantsToViewTopLevel": "Roo wants to view the top level files in this directory:",
 		"didViewTopLevel": "Roo viewed the top level files in this directory:",
+		"wantsToViewTopLevelOutsideWorkspace": "Roo wants to view the top level files in this directory (outside workspace):",
+		"didViewTopLevelOutsideWorkspace": "Roo viewed the top level files in this directory (outside workspace):",
 		"wantsToViewRecursive": "Roo wants to recursively view all files in this directory:",
 		"didViewRecursive": "Roo recursively viewed all files in this directory:",
+		"wantsToViewRecursiveOutsideWorkspace": "Roo wants to recursively view all files in this directory (outside workspace):",
+		"didViewRecursiveOutsideWorkspace": "Roo recursively viewed all files in this directory (outside workspace):",
 		"wantsToViewDefinitions": "Roo wants to view source code definition names used in this directory:",
 		"didViewDefinitions": "Roo viewed source code definition names used in this directory:",
+		"wantsToViewDefinitionsOutsideWorkspace": "Roo wants to view source code definition names used in this directory (outside workspace):",
+		"didViewDefinitionsOutsideWorkspace": "Roo viewed source code definition names used in this directory (outside workspace):",
 		"wantsToSearch": "Roo wants to search this directory for <code>{{regex}}</code>:",
-		"didSearch": "Roo searched this directory for <code>{{regex}}</code>:"
+		"didSearch": "Roo searched this directory for <code>{{regex}}</code>:",
+		"wantsToSearchOutsideWorkspace": "Roo wants to search this directory (outside workspace) for <code>{{regex}}</code>:",
+		"didSearchOutsideWorkspace": "Roo searched this directory (outside workspace) for <code>{{regex}}</code>:"
+	},
+	"codebaseSearch": {
+		"wantsToSearch": "Roo wants to search the codebase for <code>{{query}}</code>:",
+		"wantsToSearchWithPath": "Roo wants to search the codebase for <code>{{query}}</code> in <code>{{path}}</code>:",
+		"didSearch": "Found {{count}} result(s) for <code>{{query}}</code>:"
 	},
 	"commandOutput": "Command Output",
 	"response": "Response",
@@ -195,12 +228,12 @@
 		"description": "Auto-approve allows Roo Code to perform actions without asking for permission. Only enable for actions you fully trust. More detailed configuration available in <settingsLink>Settings</settingsLink>."
 	},
 	"announcement": {
-		"title": "🎉 Roo Code 3.17 Released",
-		"description": "Roo Code 3.17 brings powerful new features and improvements based on your feedback.",
+		"title": "🎉 Roo Code {{version}} Released",
+		"description": "Roo Code {{version}} brings major new features and improvements based on your feedback.",
 		"whatsNew": "What's New",
-		"feature1": "<bold>Implicit Caching for Gemini</bold>: Gemini API calls are now automatically cached, reducing API costs",
-		"feature2": "<bold>Smarter Mode Selection</bold>: Mode definitions can now include guidance on when each mode should be used, enabling better orchestration",
-		"feature3": "<bold>Intelligent Context Condensing</bold>: Intelligently summarizes conversation history when context fills up instead of truncating (enable in Settings -> Experimental)",
+		"feature1": "<bold>Experimental Marketplace</bold>: Discover and install modes and MCPs from the new marketplace (enable in <experimentalSettingsLink>Experimental Settings</experimentalSettingsLink>)",
+		"feature2": "<bold>Enhanced File Operations</bold>: Multiple concurrent file writes in experimental settings, and concurrent reads now in <contextSettingsLink>Context Settings</contextSettingsLink>",
+		"feature3": "<bold>MCP Improvements & More</bold>: Enhanced MCP support, Mermaid controls, Amazon Bedrock thinking support, and much more!",
 		"hideButton": "Hide announcement",
 		"detailsDiscussLinks": "Get more details and discuss in <discordLink>Discord</discordLink> and <redditLink>Reddit</redditLink> 🚀"
 	},
@@ -243,9 +276,24 @@
 		}
 	},
 	"systemPromptWarning": "WARNING: Custom system prompt override active. This can severely break functionality and cause unpredictable behavior.",
+	"profileViolationWarning": "The current profile violates your organization's settings",
 	"shellIntegration": {
 		"title": "Command Execution Warning",
 		"description": "Your command is being executed without VSCode terminal shell integration. To suppress this warning you can disable shell integration in the <strong>Terminal</strong> section of the <settingsLink>Roo Code settings</settingsLink> or troubleshoot VSCode terminal integration using the link below.",
 		"troubleshooting": "Click here for shell integration documentation."
+	},
+	"ask": {
+		"autoApprovedRequestLimitReached": {
+			"title": "Auto-Approved Request Limit Reached",
+			"description": "Roo has reached the auto-approved limit of {{count}} API request(s). Would you like to reset the count and proceed with the task?",
+			"button": "Reset and Continue"
+		}
+	},
+	"indexingStatus": {
+		"ready": "Index ready",
+		"indexing": "Indexing {{percentage}}%",
+		"indexed": "Indexed",
+		"error": "Index error",
+		"status": "Index status"
 	}
 }

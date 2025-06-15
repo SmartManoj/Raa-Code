@@ -1,6 +1,15 @@
-[English](../../CONTRIBUTING.md) • [Català](../ca/CONTRIBUTING.md) • <b>Deutsch</b> • [Español](../es/CONTRIBUTING.md) • [Français](../fr/CONTRIBUTING.md) • [हिंदी](../hi/CONTRIBUTING.md) • [Italiano](../it/CONTRIBUTING.md) • [Nederlands](../nl/CONTRIBUTING.md) • [Русский](../ru/CONTRIBUTING.md)
+<div align="center">
+<sub>
 
-[日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
+[English](../../CONTRIBUTING.md) • [Català](../ca/CONTRIBUTING.md) • <b>Deutsch</b> • [Español](../es/CONTRIBUTING.md) • [Français](../fr/CONTRIBUTING.md) • [हिंदी](../hi/CONTRIBUTING.md) • [Bahasa Indonesia](../id/CONTRIBUTING.md) • [Italiano](../it/CONTRIBUTING.md) • [日本語](../ja/CONTRIBUTING.md)
+
+</sub>
+<sub>
+
+[한국어](../ko/CONTRIBUTING.md) • [Nederlands](../nl/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Русский](../ru/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
+
+</sub>
+</div>
 
 # Beitrag zu Roo Code
 
@@ -46,7 +55,7 @@ Erwähne die Ausrichtung an diesen Bereichen in deinen PRs.
 ### 3. Werde Teil der Roo Code Community
 
 - **Hauptweg:** Tritt unserem [Discord](https://discord.gg/roocode) bei und schreibe eine DM an **Hannes Rudolph (`hrudolph`)**.
-- **Alternative:** Erfahrene Mitwirkende können sich direkt über [GitHub Projects](https://github.com/orgs/RooVetGit/projects/1) beteiligen.
+- **Alternative:** Erfahrene Mitwirkende können sich direkt über [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1) beteiligen.
 
 ## Beitrag finden & planen
 
@@ -60,7 +69,7 @@ Erwähne die Ausrichtung an diesen Bereichen in deinen PRs.
 
 Alle Beiträge müssen mit einem GitHub Issue beginnen.
 
-- **Bestehende Issues prüfen**: Durchsuche die [GitHub Issues](https://github.com/RooVetGit/Roo-Code/issues).
+- **Bestehende Issues prüfen**: Durchsuche die [GitHub Issues](https://github.com/RooCodeInc/Roo-Code/issues).
 - **Issue erstellen**: Nutze die passenden Vorlagen:
     - **Bugs:** "Bug Report"-Vorlage.
     - **Features:** "Detailed Feature Proposal"-Vorlage. Vor dem Start ist eine Genehmigung erforderlich.
@@ -70,14 +79,14 @@ Alle Beiträge müssen mit einem GitHub Issue beginnen.
 
 ### Was soll ich machen?
 
-- Schau im [GitHub Project](https://github.com/orgs/RooVetGit/projects/1) nach nicht zugewiesenen "Good First Issues".
-- Für Dokumentation besuche das [Roo Code Docs](https://github.com/RooVetGit/Roo-Code-Docs) Repository.
+- Schau im [GitHub Project](https://github.com/orgs/RooCodeInc/projects/1) nach nicht zugewiesenen "Good First Issues".
+- Für Dokumentation besuche das [Roo Code Docs](https://github.com/RooCodeInc/Roo-Code-Docs) Repository.
 
 ### Bugs melden
 
 - Prüfe zuerst, ob der Bug bereits gemeldet wurde.
-- Erstelle neue Bug-Reports mit der ["Bug Report"-Vorlage](https://github.com/RooVetGit/Roo-Code/issues/new/choose).
-- **Sicherheitslücken:** Melde diese privat über [Security Advisories](https://github.com/RooVetGit/Roo-Code/security/advisories/new).
+- Erstelle neue Bug-Reports mit der ["Bug Report"-Vorlage](https://github.com/RooCodeInc/Roo-Code/issues/new/choose).
+- **Sicherheitslücken:** Melde diese privat über [Security Advisories](https://github.com/RooCodeInc/Roo-Code/security/advisories/new).
 
 ## Entwicklung & Einreichung
 
