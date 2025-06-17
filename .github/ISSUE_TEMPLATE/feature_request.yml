@@ -136,8 +136,6 @@ body:
         Reasoning: [why this size?]
         Main challenges: [what's tricky?]
         Dependencies: [what else is needed?]
-    validations:
-      required: true
 
   - type: textarea
     id: technical-considerations
