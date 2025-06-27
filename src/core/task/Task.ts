@@ -1796,6 +1796,7 @@ export class Task extends EventEmitter<ClineEvents> {
 
 				// If the error is a 429, and the error details contain a retry delay, use that delay instead of exponential backoff
 				if (error.status === 429) {
+					console.log(`Raa Code: Retrying API request due to 429 error. Attempt: ${retryAttempt + 1}, waiting ${exponentialDelay} seconds.`);
 					const geminiRetryDetails = error.errorDetails?.find(
 						(detail: any) => detail["@type"] === "type.googleapis.com/google.rpc.RetryInfo",
 					)
