@@ -157,6 +157,7 @@ export class Terminal extends BaseTerminal {
 			// VTE must be disabled because it prevents the prompt command from executing
 			// See https://wiki.gnome.org/Apps/Terminal/VTE
 			VTE_VERSION: "0",
+			IS_AGENT_TERMINAL: "1",
 		}
 
 		// Set Oh My Zsh shell integration if enabled
