@@ -1,4 +1,4 @@
 export const DEFAULT_HEADERS = {
-	"HTTP-Referer": "https://github.com/RooVetGit/raa-code",
-	"X-Title": "Roo Code",
+	"HTTP-Referer": "https://github.com/SmartManoj/Raa-Code",
+	"X-Title": "Raa Code",
 }
