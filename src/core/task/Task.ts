@@ -1634,6 +1634,7 @@ export class Task extends EventEmitter<ClineEvents> {
 	}
 
 	public async *attemptApiRequest(retryAttempt: number = 0): ApiStream {
+		console.log("attemptApiRequest", retryAttempt)
 		const state = await this.providerRef.deref()?.getState()
 		const {
 			apiConfiguration,
